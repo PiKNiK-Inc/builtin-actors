@@ -55,7 +55,7 @@ bundle: deps-build
 	cargo run -- -o output/builtin-actors.car
 
 # Create all canonical network bundles
-all-bundles: bundle-mainnet bundle-caterpillarnet bundle-butterflynet bundle-calibrationnet bundle-devnet bundle-testing bundle-testing
+all-bundles: bundle-mainnet bundle-caterpillarnet bundle-butterflynet bundle-calibrationnet bundle-devnet bundle-testing bundle-testing sproutnet
 
 bundle-mainnet: deps-build
 	BUILD_FIL_NETWORK=mainnet cargo run -- -o output/builtin-actors-mainnet.car
@@ -69,6 +69,9 @@ bundle-butterflynet: deps-build
 bundle-calibrationnet: deps-build
 	BUILD_FIL_NETWORK=calibrationnet cargo run -- -o output/builtin-actors-calibrationnet.car
 
+bundle-sproutnet: deps-build
+	BUILD_FIL_NETWORK=sproutnet cargo run -- -o output/builtin-actors-sproutnet.car
+
 bundle-devnet: deps-build
 	BUILD_FIL_NETWORK=devnet cargo run -- -o output/builtin-actors-devnet.car
 
@@ -76,7 +79,7 @@ bundle-testing: deps-build
 	BUILD_FIL_NETWORK=testing cargo run -- -o output/builtin-actors-testing.car
 	BUILD_FIL_NETWORK=testing-fake-proofs cargo run -- -o output/builtin-actors-testing-fake-proofs.car
 
-.PHONY: all-bundles bundle-mainnet bundle-caterpillarnet bundle-butterflynet bundle-calibrationnet bundle-devnet bundle-testing
+.PHONY: all-bundles bundle-mainnet bundle-caterpillarnet bundle-butterflynet bundle-calibrationnet bundle-devnet bundle-testing sproutnet
 
 # Check if the working tree is clean.
 check-clean:
