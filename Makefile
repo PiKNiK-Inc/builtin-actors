@@ -55,7 +55,7 @@ bundle: deps-build
 	cargo run -- -o output/builtin-actors.car
 
 # Create all canonical network bundles
-all-bundles: bundle-mainnet bundle-caterpillarnet bundle-butterflynet bundle-calibrationnet bundle-devnet bundle-testing bundle-testing sproutnet
+all-bundles: bundle-mainnet bundle-caterpillarnet bundle-butterflynet bundle-calibrationnet bundle-devnet bundle-testing bundle-testing bundle-sproutnet
 
 bundle-mainnet: deps-build
 	BUILD_FIL_NETWORK=mainnet cargo run -- -o output/builtin-actors-mainnet.car
